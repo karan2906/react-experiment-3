@@ -1,0 +1,34 @@
+import React from "react";
+
+// ProductCard component accepting props
+function ProductCard({ name, price, status }) {
+  return (
+    <div style={{
+      border: "1px solid #ccc",
+      borderRadius: "8px",
+      padding: "20px",
+      width: "180px",
+      margin: "10px",
+      textAlign: "center",
+      boxShadow: "0 0 5px rgba(0,0,0,0.1)"
+    }}>
+      <h3 style={{ fontWeight: "bold" }}>{name}</h3>
+      <p>Price: ${price}</p>
+      <p>Status: {status}</p>
+    </div>
+  );
+}
+
+// Example usage of ProductCard component
+export default function ProductsList() {
+  return (
+    <div>
+      <h2 style={{ textAlign: "center" }}>Products List</h2>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <ProductCard name="Wireless Mouse" price="25.99" status="In Stock" />
+        <ProductCard name="Keyboard" price="45.50" status="Out of Stock" />
+        <ProductCard name="Monitor" price="199.99" status="In Stock" />
+      </div>
+    </div>
+  );
+}
