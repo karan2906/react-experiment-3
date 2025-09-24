@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Person Class Hierarchy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .info-box {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Person Class Hierarchy with Student and Teacher Subclasses</h1>
+  <div id="output"></div>
+
+  <script>
+    // Base Person class
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      displayInfo() {
+        return `Name: ${this.name}, Age: ${this.age}`;
+      }
+    }
+
+    // Student subclass
+    class Student extends Person {
+      constructor(name, age, course) {
+        super(name, age);
+        this.course = course;
+      }
+
+      displayInfo() {
+        return `Student Name: ${this.name}, Age: ${this.age}, Course: ${this.course}`;
+      }
+    }
+
+    // Teacher subclass
+    class Teacher extends Person {
+      constructor(name, age, subject) {
+        super(name, age);
+        this.subject = subject;
+      }
+
+      displayInfo() {
+        return `Teacher Name: ${this.name}, Age: ${this.age}, Subject: ${this.subject}`;
+      }
+    }
+
+    // Create instances
+    const student1 = new Student("Alice", 20, "Computer Science");
+    const teacher1 = new Teacher("Mr. Smith", 45, "Mathematics");
+
+    // Get the output div
+    const outputDiv = document.getElementById("output");
+
+    // Create elements to display info
+    function createInfoBox(text) {
+      const div = document.createElement("div");
+      div.className = "info-box";
+      div.textContent = text;
+      return div;
+    }
+
+    // Append info to the page
+    outputDiv.appendChild(createInfoBox(student1.displayInfo()));
+    outputDiv.appendChild(createInfoBox(teacher1.displayInfo()));
+  </script>
+</body>
+</html>
+
